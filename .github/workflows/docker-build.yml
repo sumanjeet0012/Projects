@@ -48,6 +48,6 @@ jobs:
       - name: Deploy to Kubernetes
         run: |
           kubectl get deployment build-and-release-automation >/dev/null 2>&1 && \
-          kubectl set image deployment/build-and-release-automation build-and-release-automation=sumanjeet0012/build-and-release-automation:${{ github.sha }} || \
+          kubectl set image deployment/build-and-release-automation build_and_release_automation=sumanjeet0012/build-and-release-automation:${{ github.sha }} || \
           kubectl create deployment build-and-release-automation --image=sumanjeet0012/build-and-release-automation:${{ github.sha }}
         
