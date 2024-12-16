@@ -36,6 +36,6 @@ jobs:
           docker push sumanjeet0012/build_and_release_automation:${{ github.sha }}
           docker push sumanjeet0012/build_and_release_automation:latest
       - name: Scan Docker Image for Vulnerabilities
-        uses: aquasecurity/trivy-action@v0.29.0
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: sumanjeet0012/build_and_release_automation:${{ github.sha }}
