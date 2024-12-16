@@ -39,3 +39,15 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: sumanjeet0012/build_and_release_automation:${{ github.sha }}
+      - name: Connect to Kubernetes cluster on DigitalOcean
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - name: Set up kubectl
+        run: doctl kubernetes cluster kubeconfig save do-nyc1-k8s-1-31-1-do-5-nyc1-1733847496347
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl get deployment my-app >/dev/null 2>&1 && \
+          kubectl set image deployment/my-app my-app=sumanjeet0012/my-app:${{ github.sha }} || \
+          kubectl create deployment my-app --image=sumanjeet0012/my-app:${{ github.sha }}
+        
