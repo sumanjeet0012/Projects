@@ -50,4 +50,5 @@ jobs:
           kubectl get deployment build-and-release-automation >/dev/null 2>&1 && \
           kubectl set image deployment/build-and-release-automation build-and-release-automation=sumanjeet0012/build_and_release_automation:${{ github.sha }} || \
           kubectl create deployment build-and-release-automation --image=sumanjeet0012/build_and_release_automation:${{ github.sha }}
-        
+      - name: Deploy to Kubernetes using manifest file
+        run: kubectl apply -f deployment.yaml

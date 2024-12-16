@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: build-and-release-automation2
+  labels:
+    app: build-and-release-automation2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: build-and-release-automation2
+  template:
+    metadata:
+      labels:
+        app: build-and-release-automation2
+    spec:
+      containers:
+      - name: build-and-release-automation2
+        image: sumanjeet0012/build_and_release_automation:${{ github.sha }}
+        ports:
+        - containerPort: 3000
