@@ -1,4 +1,4 @@
-name: CI/CD pileline
+name: CI/CD pipeline
 run-name: Build and Release Automation
 on:
   push:
