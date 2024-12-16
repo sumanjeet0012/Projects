@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'projects/01 Build and Release Automation/**'
+  workflow_dispatch:
 
 jobs:
   build:
