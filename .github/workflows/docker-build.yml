@@ -26,4 +26,14 @@ jobs:
         with:
           username: sumanjeet0012
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build Docker image
+        run: |
+          docker build -t sumanjeet0012/build_and_release_automation:${{ github.sha }} .
+          docker tag sumanjeet0012/build_and_release_automation:${{ github.sha }} sumanjeet0012/build_and_release_automation:latest
+          docker push sumanjeet0012/build_and_release_automation:${{ github.sha }}
+      - name: push to docker hub
+        run: |
+          docker push sumanjeet0012/build_and_release_automation:${{ github.sha }}
+          docker push sumanjeet0012/build_and_release_automation:latest
+
 
