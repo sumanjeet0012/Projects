@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: build-and-release-automation2
-        image: sumanjeet0012/build_and_release_automation:${{ github.sha }}
+        image: sumanjeet0012/build_and_release_automation:${GITHUB_SHA}
         ports:
         - containerPort: 3000
