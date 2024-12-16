@@ -47,7 +47,7 @@ jobs:
         run: doctl kubernetes cluster kubeconfig save k8s-1-31-1-do-5-nyc1-1733847496347
       - name: Deploy to Kubernetes
         run: |
-          kubectl get deployment my-app >/dev/null 2>&1 && \
-          kubectl set image deployment/my-app my-app=sumanjeet0012/my-app:${{ github.sha }} || \
-          kubectl create deployment my-app --image=sumanjeet0012/my-app:${{ github.sha }}
+          kubectl get deployment build-and-release-automation >/dev/null 2>&1 && \
+          kubectl set image deployment/build-and-release-automation build-and-release-automation=sumanjeet0012/build-and-release-automation:${{ github.sha }} || \
+          kubectl create deployment build-and-release-automation --image=sumanjeet0012/build-and-release-automation:${{ github.sha }}
         
