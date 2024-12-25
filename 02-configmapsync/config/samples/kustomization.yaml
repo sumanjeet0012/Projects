@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- localsjgroup_v1alpha1_configmapsync.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples
