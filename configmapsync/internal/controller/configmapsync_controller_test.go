@@ -23,11 +23,11 @@ import (
 	. "github.com/onsi/gomega"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/types"
+	"k8s.io/apimachinery/pkg/apis/meta/v1"
+
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-
-	localsjgroupv1alpha1 "github.com/projects/02-configmapsync/api/v1alpha1"
+	localsjgroupv1alpha1 "github.com/projects/configmapsync/api/v1alpha1"
 )
 
 var _ = Describe("Configmapsync Controller", func() {

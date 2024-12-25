@@ -5,8 +5,8 @@
 domain: sumanjeet.com
 layout:
 - go.kubebuilder.io/v4
-projectName: 02-configmapsync
-repo: github.com/projects/02-configmapsync
+projectName: configmapsync
+repo: github.com/projects/configmapsync
 resources:
 - api:
     crdVersion: v1
@@ -15,6 +15,6 @@ resources:
   domain: sumanjeet.com
   group: localsjgroup
   kind: Configmapsync
-  path: github.com/projects/02-configmapsync/api/v1alpha1
+  path: github.com/projects/configmapsync/api/v1alpha1
   version: v1alpha1
 version: "3"

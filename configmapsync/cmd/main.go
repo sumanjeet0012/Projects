@@ -35,8 +35,8 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	localsjgroupv1alpha1 "github.com/projects/02-configmapsync/api/v1alpha1"
-	"github.com/projects/02-configmapsync/internal/controller"
+	localsjgroupv1alpha1 "github.com/projects/configmapsync/api/v1alpha1"
+	"github.com/projects/configmapsync/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 

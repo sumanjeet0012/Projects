@@ -25,7 +25,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/projects/02-configmapsync/test/utils"
+	"github.com/projects/configmapsync/test/utils"
 )
 
 var (
@@ -43,7 +43,7 @@ var (
 
 	// projectImage is the name of the image which will be build and loaded
 	// with the code source changes to be tested.
-	projectImage = "example.com/02-configmapsync:v0.0.1"
+	projectImage = "example.com/configmapsync:v0.0.1"
 )
 
 // TestE2E runs the end-to-end (e2e) test suite for the project. These tests execute in an isolated,
@@ -52,7 +52,7 @@ var (
 // CertManager and Prometheus.
 func TestE2E(t *testing.T) {
 	RegisterFailHandler(Fail)
-	_, _ = fmt.Fprintf(GinkgoWriter, "Starting 02-configmapsync integration test suite\n")
+	_, _ = fmt.Fprintf(GinkgoWriter, "Starting configmapsync integration test suite\n")
 	RunSpecs(t, "e2e suite")
 }
 
