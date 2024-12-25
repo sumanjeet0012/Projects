@@ -25,9 +25,9 @@ import (
 
 // ConfigmapsyncSpec defines the desired state of Configmapsync.
 type ConfigmapsyncSpec struct {
-	SourceNamespace      string `json "sourceNamespace"`
-	DestinationNamespace string `json "destinationNamespace"`
-	ConfigmapName        string `json "configmapName"`
+	SourceNamespace      string `json:"sourceNamespace"`
+	DestinationNamespace string `json:"destinationNamespace"`
+	ConfigmapName        string `json:"configmapName"`
 }
 
 // ConfigmapsyncStatus defines the observed state of Configmapsync.
