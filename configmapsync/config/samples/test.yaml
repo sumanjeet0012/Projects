@@ -1,0 +1,11 @@
+apiVersion: localsjgroup.sumanjeet.com/v1alpha1
+kind: Configmapsync
+metadata:
+  labels:
+    app.kubernetes.io/name: configmapsync
+    app.kubernetes.io/managed-by: kustomize
+  name: configmapsync-sample
+spec:
+  sourceNamespace: test1
+  destinationNamespace: test2
+  configmapName: cm1

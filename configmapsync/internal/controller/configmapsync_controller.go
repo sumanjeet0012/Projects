@@ -42,6 +42,7 @@ type ConfigmapsyncReconciler struct {
 // +kubebuilder:rbac:groups=localsjgroup.sumanjeet.com,resources=configmapsyncs,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=localsjgroup.sumanjeet.com,resources=configmapsyncs/status,verbs=get;update;patch
 // +kubebuilder:rbac:groups=localsjgroup.sumanjeet.com,resources=configmapsyncs/finalizers,verbs=update
+// +kubebuilder:rbac:groups="",resources=configmaps,verbs=get;list;watch;create;update;patch;delete
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -115,6 +116,7 @@ func (r *ConfigmapsyncReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 func (r *ConfigmapsyncReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&localsjgroupv1alpha1.Configmapsync{}).
+		Owns(&corev1.ConfigMap{}).
 		Named("configmapsync").
 		Complete(r)
 }
