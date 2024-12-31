@@ -12,6 +12,7 @@ COPY src/ ./src/
 COPY public/ ./public/
 COPY index.html ./
 COPY vite.config.js ./
+COPY .env ./
 
 EXPOSE 5173
 
