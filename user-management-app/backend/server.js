@@ -8,12 +8,22 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-app.use(express.json());
+app.use((req, res, next) => {
+  console.log('Request Details:');
+  console.log('Origin:', req.get('origin'));
+  console.log('Host:', req.get('host'));
+  console.log('Method:', req.method);
+  console.log('Path:', req.path);
+  console.log('Headers:', JSON.stringify(req.headers, null, 2));
+  next();
+});
+
+// app.use(cors({
+//   origin: '*',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
+// app.use(express.json());
 
 // Create MySQL connection
 const db = mysql.createConnection({
