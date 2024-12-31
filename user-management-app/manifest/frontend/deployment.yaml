@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-management-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: user-management-frontend
+  template:
+    metadata:
+      labels:
+        app: user-management-frontend
+    spec:
+      containers:
+      - name: user-management-frontend
+        image: sumanjeet0012/user-management-app-frontend
+        ports:
+        - containerPort: 5173
