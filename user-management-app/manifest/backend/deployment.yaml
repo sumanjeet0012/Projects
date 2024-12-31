@@ -21,7 +21,7 @@ spec:
         - containerPort: 5000
         env:
         - name: DB_HOST
-          value : mysql
+          value : user-management-db-service
         - name: DB_USER
           value : admin
         - name: DB_PASSWORD
