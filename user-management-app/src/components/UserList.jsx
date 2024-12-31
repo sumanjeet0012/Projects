@@ -13,19 +13,43 @@ import axios from 'axios';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users`);
-        setUsers(response.data);
+        setUsers(response.data || []);
+        setError(null);
       } catch (error) {
         console.error('Error fetching users:', error);
+        setError('Failed to fetch users');
+        setUsers([]);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchUsers();
   }, []);
+
+  if (loading) {
+    return (
+      <Paper elevation={3} sx={{ p: 3 }}>
+        <Typography>Loading users...</Typography>
+      </Paper>
+    );
+  }
+
+  if (error) {
+    return (
+      <Paper elevation={3} sx={{ p: 3 }}>
+        <Typography color="error">{error}</Typography>
+      </Paper>
+    );
+  }
 
   return (
     <Paper elevation={3} sx={{ p: 3 }}>
