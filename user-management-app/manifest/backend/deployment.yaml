@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-management-backend
+  labels:
+    app: user-management-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: user-management-backend
+  template:
+    metadata:
+      labels:
+        app: user-management-backend
+    spec:
+      containers:
+      - name: user-management-backend
+        image: sumanjeet0012/user-management-app-backend
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_HOST
+          value : mysql
+        - name: DB_USER
+          value : admin
+        - name: DB_PASSWORD
+          value : adminpass
+        - name: DB_NAME
+          value : user_management
