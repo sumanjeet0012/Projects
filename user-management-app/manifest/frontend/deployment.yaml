@@ -17,3 +17,6 @@ spec:
         image: sumanjeet0012/user-management-app-frontend
         ports:
         - containerPort: 5173
+        env:
+        - name: VITE_BACKEND_URL
+          value : user-management-backend-service:5000
