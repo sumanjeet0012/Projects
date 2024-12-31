@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-management-db
+  labels:
+    app: mysql
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: user-management-db
+        image: mysql:8.0
+        ports:
+        - containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value:  mysqlroot
+          - name: MYSQL_DATABASE
+            value:  user_management
+          - name: MYSQL_USER
+            value: admin
+          - name: MYSQL_PASSWORD
+            value: adminpass
