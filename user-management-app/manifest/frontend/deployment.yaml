@@ -19,4 +19,4 @@ spec:
         - containerPort: 5173
         env:
         - name: VITE_BACKEND_URL
-          value: /api
+          value: http://188.166.198.230/api
